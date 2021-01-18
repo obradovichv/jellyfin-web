@@ -68,9 +68,9 @@ import confirm from '../../../components/confirm/confirm';
     export default function (view, params) {
         function saveEasyPassword() {
             const userId = params.userId;
-            const easyPassword = view.querySelector('#txtEasyPassword').value;
 
-            if (easyPassword) {
+            if (view.querySelector('.chkEnableLocalEasyPassword').checked) {
+                const easyPassword = view.querySelector('#txtEasyPassword').value;
                 ApiClient.updateEasyPassword(userId, easyPassword).then(function () {
                     onEasyPasswordSaved(userId);
                 });
